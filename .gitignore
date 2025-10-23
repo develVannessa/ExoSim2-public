@@ -152,3 +152,5 @@ tests/test_data/*.xml
 tests/test_data/*.h5
 tests/test_data/plots/*.png
 tests/test_data/test_data
+pyproject.toml
+pyproject.toml
