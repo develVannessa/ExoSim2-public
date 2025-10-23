@@ -92,7 +92,7 @@ class ComputeSolidAngle(Task):
 
         """
 
-        if not Fnum_y:
+        if Fnum_y is None:
             Fnum_y = Fnum_x
 
         if Fnum_x > Fnum_y:
@@ -108,6 +108,6 @@ class ComputeSolidAngle(Task):
         k = np.sqrt((a * a - b * b) / (h * h + a * a))
         alpha = np.sqrt(1 - (b / a) * (b / a))
 
-        Omega = 2.0 * np.pi - A * mpmath.ellippi(alpha * alpha, k * k)
+        Omega = 2.0 * np.pi - A.value * mpmath.ellippi(alpha.value * alpha.value, k.value * k.value)
 
         return Omega * u.sr
