@@ -1,4 +1,5 @@
 import astropy.units as u
+from astropy.units import Quantity
 import mpmath
 import numpy as np
 
@@ -107,7 +108,8 @@ class ComputeSolidAngle(Task):
         A = 4.0 * h * b / (a * np.sqrt(h * h + a * a))
         k = np.sqrt((a * a - b * b) / (h * h + a * a))
         alpha = np.sqrt(1 - (b / a) * (b / a))
-
-        Omega = 2.0 * np.pi - A.value * mpmath.ellippi(alpha.value * alpha.value, k.value * k.value)
-
+        if isinstance(Fnum_y,Quantity) :
+            Omega = 2.0 * np.pi - A.value * mpmath.ellippi(alpha.value * alpha.value, k.value * k.value)
+        else :
+            Omega = 2.0 * np.pi - A * mpmath.ellippi(alpha * alpha, k * k)
         return Omega * u.sr
