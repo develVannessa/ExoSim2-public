@@ -40,15 +40,17 @@ class LoadCustom(Task):
 
         ph = ascii.read(fname, format="ecsv")
         wl_k = checks.find_key(
-            ph.keys(), ["Wavelength", "wavelength", "wl"], self
+            ph.keys(), ["wl", "Wavelength", "wavelength"], self
         )
         ph_wl = ph[wl_k].data * ph[wl_k].unit
-        sed_k = checks.find_key(ph.keys(), ["Sed", "sed"], self)
+        sed_k = checks.find_key(
+            ph.keys(), ["sed", "Sed"], self)
         ph_sed = ph[sed_k].data * ph[sed_k].unit
 
         R = checks.check_units(R, u.m, self)
         D = checks.check_units(D, u.m, self)
-        ph_sed *= np.pi * (R / D) ** 2 * u.sr
+        ph_sed *= np.pi * (R / D) ** 2 
+        #* u.sr
         print(ph_sed.unit)
 
         sed = signal.Sed(spectral=ph_wl, data=ph_sed)

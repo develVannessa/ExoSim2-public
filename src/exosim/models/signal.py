@@ -695,9 +695,9 @@ class Sed(Signal):
 
         if hasattr(data, "unit") and self._normalize_units(
             data.unit
-        ) != self._normalize_units(u.W / u.m**2 / u.um):
+        ) != self._normalize_units(u.W / u.m**2 / u.um ):
             try:
-                data = data.to(u.W / u.m**2 / u.um)
+                data = data.to(u.W / u.m**2 / u.um )
             except u.UnitConversionError:
                 self.error(_invalid_units)
                 raise u.UnitsError(_invalid_units)

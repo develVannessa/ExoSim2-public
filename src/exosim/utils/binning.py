@@ -107,8 +107,10 @@ def rebin(
         if (
             np.diff(xp).max() < np.diff(x[idx]).min()
         ):  # using max vs min I'm sure that if there is an empty bin it switches to interpolate
+            print('binning)')
             return _bin_with_statistics(x, xp, fp, axis, statistic=mode)
         else:
+            print('interpolating')
             return _interpolating(x, xp, fp, axis, fill_value=fill_value)
     except ValueError:
         # if there are empty bins, switch to interpolation

@@ -17,7 +17,9 @@
 
 ## Introduction <a name="introduction"></a>
 
-ExoSim 2 is the next generation of the Exoplanet Observation Simulator [ExoSim](https://github.com/ExoSim/ExoSimPublic) tailored for spectro-photometric observations of transiting exoplanets from space, ground, and sub-orbital platforms. This software is a complete rewrite implemented in Python 3, embracing object-oriented design principles, which allow users to replace each component with their functions when required.
+WARNING
+
+This version of ExoSim 2 is a forked version of the next generation of the Exoplanet Observation Simulator [ExoSim](https://github.com/ExoSim/ExoSimPublic) tailored for spectro-photometric observations of transiting exoplanets from space, ground, and sub-orbital platforms. *in addition to planetary Nebulae used for in-flight wavelength calibrations. As for it original parent, this software is implemented in Python 3 (3.11 => ), embracing object-oriented design principles, which allow users to replace each component with their functions when required.
 
 
 ## Table of contents
